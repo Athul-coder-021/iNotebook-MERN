@@ -3,6 +3,10 @@ const User = require("../models/User");
 const router = express.Router();
 const { body, validationResult } = require("express-validator");
 const bcrypt = require('bcryptjs'); 
+var jwt = require('jsonwebtoken');
+
+const JWT_SECRET = 'iNoteboook Project CWH'
+
 
 //Create a User using : POST "/api/auth/createuser".No login required
 router.post(
@@ -34,13 +38,25 @@ router.post(
           .status(400)
           .json({ error: "Sorry a user with thsis email id already exists" });
       }
+
+      //using bcrypt to hash passwords
+      const salt = await bcrypt.genSalt(10);
+      const securePassword = await bcrypt.hash(req.body.password,salt);
+
       //create a new user
       user = await User.create({
         name: req.body.name,
         email: req.body.email,
-        password: req.body.password,
+        password: securePassword,
       });
-      return res.status(200).json(user);
+      const data ={
+        user:{
+            id:user._id
+        }
+      }
+      const jwtData = jwt.sign(data,JWT_SECRET);
+    //   console.log(jwtData);
+      return res.status(200).json({jwtData});
     } catch (error) {
       console.error(error.message);
       res.status(500).send("Some error occured");
