@@ -30,6 +30,26 @@ const NoteState = (props)=>
             "__v": 0
         },
         {
+            "_id": "65d41f5d230bf60a8304cb9b",
+            "user": "65cdaa6ab9290a3556f265ba",
+            "title": "My Coding Journey",
+            "description": "Will tell you about y coding struggles and how to overcome it",
+            "tag": "education",
+            "createdAt": "2024-02-20T03:41:17.876Z",
+            "updatedAt": "2024-02-20T03:41:17.876Z",
+            "__v": 0
+        },
+        {
+            "_id": "65d41f5d230bf60a8304cb9b",
+            "user": "65cdaa6ab9290a3556f265ba",
+            "title": "My Coding Journey",
+            "description": "Will tell you about y coding struggles and how to overcome it",
+            "tag": "education",
+            "createdAt": "2024-02-20T03:41:17.876Z",
+            "updatedAt": "2024-02-20T03:41:17.876Z",
+            "__v": 0
+        },
+        {
             "_id": "65d4b60c9f42cb4d1df270b8",
             "user": "65cdaa6ab9290a3556f265ba",
             "title": "My Devlopment Journey",
