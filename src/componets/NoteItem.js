@@ -1,7 +1,10 @@
-import React from "react";
+import React, { useContext } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faTrash, faPenSquare } from "@fortawesome/free-solid-svg-icons";
+import noteContext from "../context/notes/noteContext";
 const NoteItem = (props) => {
+  const context = useContext(noteContext);
+  const {deleteNote}= context;
   const { note } = props;
   return (
     <div className="col md-3">
@@ -13,7 +16,7 @@ const NoteItem = (props) => {
             See Notes
           </a>
             <FontAwesomeIcon icon={faTrash} 
-            style={{ position: "absolute", right: 10, bottom: 10 ,cursor: "pointer"}}/>
+            style={{ position: "absolute", right: 10, bottom: 10 ,cursor: "pointer"}} onClick={()=>{deleteNote(note._id)}}/>
             <FontAwesomeIcon icon={faPenSquare} style={{ position: "absolute", right: 40, bottom: 10 ,cursor: "pointer"}} /> 
         </div>
       </div>
