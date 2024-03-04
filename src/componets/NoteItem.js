@@ -5,7 +5,7 @@ import noteContext from "../context/notes/noteContext";
 const NoteItem = (props) => {
   const context = useContext(noteContext);
   const {deleteNote}= context;
-  const { note } = props;
+  const { note ,updateNote} = props;
   return (
     <div className="col md-3">
       <div className="card my-3">
@@ -17,7 +17,7 @@ const NoteItem = (props) => {
           </a>
             <FontAwesomeIcon icon={faTrash} 
             style={{ position: "absolute", right: 10, bottom: 10 ,cursor: "pointer"}} onClick={()=>{deleteNote(note._id)}}/>
-            <FontAwesomeIcon icon={faPenSquare} style={{ position: "absolute", right: 40, bottom: 10 ,cursor: "pointer"}} /> 
+            <FontAwesomeIcon icon={faPenSquare} style={{ position: "absolute", right: 40, bottom: 10 ,cursor: "pointer"}} onClick={()=>{updateNote(note)}}/> 
         </div>
       </div>
     </div>
