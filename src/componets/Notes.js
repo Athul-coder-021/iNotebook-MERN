@@ -27,9 +27,9 @@ import AddNote from "./AddNote";
 
 const Notes = () => {
   const context = useContext(noteContext);
-  const { notes, getNotes } = context;
+  const { notes, getNotes,editNote } = context;
   const [showModal, setShowModal] = useState(false);
-  const [note, setNote] = useState({ etitle: "", edescription: "", etag: "" });
+  const [note, setNote] = useState({ id:"",etitle: "", edescription: "", etag: "" });
   useEffect(() => {
     getNotes();
   }, []);
@@ -37,7 +37,7 @@ const Notes = () => {
 
     setShowModal(true);
 
-    setNote({etitle:currentNote.title,edescription:currentNote.description,etag:currentNote.tag});
+    setNote({id:currentNote._id, etitle:currentNote.title,edescription:currentNote.description,etag:currentNote.tag});
   };
   // const ref = useRef(null);
 
@@ -45,6 +45,8 @@ const Notes = () => {
     console.log("Updating the note ",note)
     e.preventDefault(); // prevents page from reloading
     // addNote(note.title, note.description, note.tag);
+    editNote(note.id,note.etitle,note.edescription,note.etag)
+    setShowModal(false);
   };
 
   const onChange = (e) => {
