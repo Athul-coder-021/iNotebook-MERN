@@ -16,7 +16,7 @@ const NoteItem = (props) => {
             See Notes
           </a>
             <FontAwesomeIcon icon={faTrash} 
-            style={{ position: "absolute", right: 10, bottom: 10 ,cursor: "pointer"}} onClick={()=>{deleteNote(note._id)}}/>
+            style={{ position: "absolute", right: 10, bottom: 10 ,cursor: "pointer"}} onClick={()=>{deleteNote(note._id);props.showAlert("deleted successfully","success")}}/>
             <FontAwesomeIcon icon={faPenSquare} style={{ position: "absolute", right: 40, bottom: 10 ,cursor: "pointer"}} onClick={()=>{updateNote(note)}}/> 
         </div>
       </div>
